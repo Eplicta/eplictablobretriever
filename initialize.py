@@ -1,13 +1,12 @@
 import os
 import os.path
 import configparser
-from config import Config 
-
-config_path = './config/config.ini'
+from config import Config
 
 def initialize():
     config = Config()
-    print('hello')
+    config.attempt_set_option('APP_CONFIG', 'DIRECTORY', 'C:/test/blobretriever')
+
 
 
 
