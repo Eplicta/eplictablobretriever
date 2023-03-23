@@ -8,3 +8,4 @@ if __name__ == '__main__':
     initialize()
     config = Config()
     print(config.get_option('APP_CONFIG', 'DIRECTORY'))
+    
