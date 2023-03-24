@@ -13,13 +13,16 @@ class BlobStorageClient():
 
         self.blob_service_client = BlobServiceClient(account_url= self.account_url, credential= self.account_key)
     
-    def download_blob(self, container_name, blob_name):
+    def download_blob(self, container_name, blob_name, file_path= None):
         download_path = os.path.join(self.config.get_option("APP_CONFIG", "DOWNLOAD_DIRECTORY"), blob_name)
+        if (file_path != None):
+                download_path = os.path.join(file_path, blob_name)
+                
         container_client = self.blob_service_client.get_container_client(container= container_name)
 
         self.__download_blob(self, container_client, download_path, blob_name)
 
-    def download_blobs_from_container(self, container_name):
+    def download_blobs_from_container(self, container_name, file_path= None):
         container_client, exists = self.__get_container_client(container_name)
         if (exists == False):
             return
@@ -28,6 +31,9 @@ class BlobStorageClient():
 
         for blob_name in blob_list:
             download_path = os.path.join(self.config.get_option("APP_CONFIG", "DOWNLOAD_DIRECTORY"), blob_name)
+            if (file_path != None):
+                download_path = os.path.join(file_path, blob_name)
+
             self.__download_blob(container_client, download_path, blob_name)
 
     def list_blobs_from_container(self, container_name):
