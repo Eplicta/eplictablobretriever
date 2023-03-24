@@ -21,6 +21,8 @@ class Config(object):
             f = open(self.config_path, 'w')
             f.close()
 
+        self.config.read(self.config_path)
+
         self.__attempt_add_section('APP_CONFIG')
         self.__attempt_add_section('BLOB_CONFIG')
 
