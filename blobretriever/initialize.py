@@ -1,7 +1,7 @@
 import os
 import os.path
 import configparser
-from config import Config
+from blobretriever.config import Config
 
 def initialize():
     config = Config()

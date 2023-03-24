@@ -1,9 +1,9 @@
 import os
 import os.path
 import configparser
-from config import Config
-from initialize import initialize
-from blobstorageclient import BlobStorageClient
+from blobretriever.config import Config
+from blobretriever.initialize import initialize
+from blobretriever.blobstorageclient import BlobStorageClient
 
 if __name__ == '__main__':
     initialize()
