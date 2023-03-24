@@ -38,6 +38,10 @@ class Config(object):
 
     def attempt_set_directory(self, value):
         self.__attempt_set_option('APP_CONFIG', 'DOWNLOAD_DIRECTORY', value)
+
+    def set_blob_config(self, account_name, account_key):
+        self.__set_option('BLOB_CONFIG', 'ACCOUNT_NAME', account_name)
+        self.__set_option('BLOB_CONFIG', 'ACCOUNT_KEY', account_key)
     
     def __set_option(self, section, option, value):
         self.__attempt_add_section(section)

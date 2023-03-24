@@ -48,6 +48,16 @@ def set_download_path(
     
     config.set_directory(download_path)
 
+@app.command()
+def set_blob_config(
+    account_name: str = typer.Argument(...),
+    account_key: str = typer.Argument(...)
+) -> None:
+    config = Config()
+
+    config.set_blob_config(account_name, account_key)
+    print(f'Blob config set.\nAccount Name: {account_name}\nAccount Key: {account_key}')
+
 
 def __get_blob_storage_client():
     config = Config()
