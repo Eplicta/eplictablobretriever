@@ -32,16 +32,24 @@ class Config(object):
     def get_option(self, section, option):
         return self.config[section][option]
     
-    def set_option(self, section, option, value):
+    def set_directory(self, value):
+        self.__set_option('APP_CONFIG', 'DOWNLOAD_DIRECTORY', value)
+        print(f'Set download_directory to {value}')
+
+    def attempt_set_directory(self, value):
+        self.__attempt_set_option('APP_CONFIG', 'DOWNLOAD_DIRECTORY', value)
+    
+    def __set_option(self, section, option, value):
         self.__attempt_add_section(section)
         self.config.set(section, option, value)
         self.__write_to_file()
 
     # will only set value if an option does not already exist
-    def attempt_set_option(self, section, option, value):
+    def __attempt_set_option(self, section, option, value):
         self.__attempt_add_section(section)
         if (self.config.has_option(section, option) == False):
-            self.set_option(section, option, value)
+            self.__set_option(section, option, value)
+            return
 
 
     def __attempt_add_section(self, section):
