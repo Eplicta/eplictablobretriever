@@ -13,9 +13,7 @@ def main() -> None:
 def list_blobs(
     container_name: str = typer.Argument(...)
 ) -> None:
-    config = Config()
-
-    blob_storage_client = BlobStorageClient(config.get_option('BLOB_CONFIG', 'ACCOUNT_NAME'), config.get_option('BLOB_CONFIG', 'ACCOUNT_KEY'))
+    blob_storage_client = __get_blob_storage_client()
     blob_list = blob_storage_client.list_blobs_from_container(container_name)
     for blob_name in blob_list:
         typer.secho(blob_name)
@@ -30,13 +28,15 @@ def download_blobs(
     )
 
 ) -> None:
-    config = Config()
-
     if (file_path != None):
         if (check(file_path) == False):
             print(f'{file_path} is not a valid file path')
             return
 
-    blob_storage_client = BlobStorageClient(config.get_option('BLOB_CONFIG', 'ACCOUNT_NAME'), config.get_option('BLOB_CONFIG', 'ACCOUNT_KEY'))
+    blob_storage_client = __get_blob_storage_client()
     blob_storage_client.download_blobs_from_container(container_name, file_path)
+
+def __get_blob_storage_client():
+    config = Config()
+    return BlobStorageClient(config.get_option('BLOB_CONFIG', 'ACCOUNT_NAME'), config.get_option('BLOB_CONFIG', 'ACCOUNT_KEY'))
     
