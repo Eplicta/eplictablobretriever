@@ -50,7 +50,7 @@ class BlobStorageClient():
         container_client = self.blob_service_client.get_container_client(container= container_name)
 
         if (container_client.exists() == False):
-            print(f'Container {container_client.container_name} does not exist in storage account')
+            print(f'Container {container_client.container_name} does not exist in storage account {self.account_name}')
             return container_client, False
 
         return container_client, True
