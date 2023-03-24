@@ -27,6 +27,12 @@ class BlobStorageClient():
             download_path = os.path.join(self.config.get_option("APP_CONFIG", "DOWNLOAD_DIRECTORY"), blob_name)
             self.__download_blob(container_client, download_path, blob_name)
 
+    def list_blobs_from_container(self, container_name):
+        container_client = self.blob_service_client.get_container_client(container= container_name)
+        blob_list = container_client.list_blob_names()
+
+        return blob_list
+
     def __download_blob(self, container_client, download_path, blob_name):
         print("\nDownloading blob to \n\t" + download_path)
 
