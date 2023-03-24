@@ -35,6 +35,7 @@ class BlobStorageClient():
 
     def __download_blob(self, container_client, download_path, blob_name):
         print("\nDownloading blob to \n\t" + download_path)
-
+    
+        os.makedirs(os.path.dirname(download_path), exist_ok=True)
         with open(download_path, "wb") as download_file:
             download_file.write(container_client.download_blob(blob_name).readall())

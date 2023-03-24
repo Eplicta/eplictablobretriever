@@ -18,6 +18,7 @@ class Config(object):
         self.config = configparser.ConfigParser()
 
         if (os.path.isfile(self.config_path) == False):
+            os.makedirs(os.path.dirname(self.config_path), exist_ok=True)
             f = open(self.config_path, 'w')
             f.close()
 
