@@ -14,6 +14,10 @@ def list_blobs(
     container_name: str = typer.Argument(...)
 ) -> None:
     blob_storage_client = __get_blob_storage_client()
+
+    if (blob_storage_client is None):
+        return
+    
     blob_list = blob_storage_client.list_blobs_from_container(container_name)
     for blob_name in blob_list:
         typer.secho(blob_name)
@@ -34,6 +38,10 @@ def download_blobs(
             return
 
     blob_storage_client = __get_blob_storage_client()
+
+    if (blob_storage_client is None):
+        return
+
     blob_storage_client.download_blobs_from_container(container_name, download_path)
 
 @app.command()
@@ -61,5 +69,11 @@ def set_blob_config(
 
 def __get_blob_storage_client():
     config = Config()
-    return BlobStorageClient(config.get_option('BLOB_CONFIG', 'ACCOUNT_NAME'), config.get_option('BLOB_CONFIG', 'ACCOUNT_KEY'))
+
+    account_name, account_key = config.get_blob_storage_config()
+
+    if (account_name is None or account_key is None):
+        return None
+
+    return BlobStorageClient(account_name, account_key)
     

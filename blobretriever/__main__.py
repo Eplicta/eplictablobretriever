@@ -1,10 +1,5 @@
-import os
-import os.path
-import configparser
-from config import Config
-from initialize import initialize
-from blobstorageclient import BlobStorageClient
 import cli
+from initialize import initialize
 
 __app_name__ = "blobretriever"
 

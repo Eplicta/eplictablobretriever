@@ -14,7 +14,7 @@ class Config(object):
         if (self.__initialized): return
         self.__initialized = True
         
-        self.config_path = './config/config.ini'
+        self.config_path = os.path.join(os.path.dirname(__file__), 'config/config.ini')
         self.config = configparser.ConfigParser()
 
         if (os.path.isfile(self.config_path) == False):
@@ -42,6 +42,21 @@ class Config(object):
     def set_blob_config(self, account_name, account_key):
         self.__set_option('BLOB_CONFIG', 'ACCOUNT_NAME', account_name)
         self.__set_option('BLOB_CONFIG', 'ACCOUNT_KEY', account_key)
+
+    def get_blob_storage_config(self):
+        try:
+            account_name = self.get_option('BLOB_CONFIG', 'ACCOUNT_NAME')
+        except:
+            print('Blob Storage account name has not been set in config.\nRun ´set-blob-config [ACCOUNT_NAME] [ACCOUNT_KEY]´ to set config')
+            return None, None
+        
+        try:
+            account_key = self.get_option('BLOB_CONFIG', 'ACCOUNT_KEY')
+        except:
+            print('Blob Storage account key has not been set in config.\nRun ´set-blob-config [ACCOUNT_NAME] [ACCOUNT_KEY]´ to set config')
+            return None, None
+        
+        return account_name, account_key
     
     def __set_option(self, section, option, value):
         self.__attempt_add_section(section)
