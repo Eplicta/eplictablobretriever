@@ -1,6 +1,6 @@
 import os
 from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
-from .config import Config
+from config import Config
 
 class BlobStorageClient():
     def __init__(self, account_name, account_key):
