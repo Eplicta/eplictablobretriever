@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "eplictablobretriever"
-version = "0.0.6"
+version = "0.0.28"
 authors = [
   { name="James Frih", email="james.frih@gruppera.se" },
 ]
@@ -15,6 +15,13 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "typer",
+    "configparser",
+    "pathvalidate==2.5.2",
+    "azure-storage-blob==12.15.0"
 ]
 
 [project.urls]
