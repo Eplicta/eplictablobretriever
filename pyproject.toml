@@ -18,7 +18,7 @@ classifiers = [
 ]
 
 dependencies = [
-    "typer",
+    "typer==0.7.0",
     "configparser",
     "pathvalidate==2.5.2",
     "azure-storage-blob==12.15.0"
