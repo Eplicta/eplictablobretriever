@@ -21,6 +21,6 @@ The following commands are available for use with this tool:
 Examples
 - To download all blobs in the "mycontainer" container: ´python -m eplictablobcontainer download-blobs mycontainer´
 
-Limitations
+## Limitations
 This tool currently only supports downloading from Azure Blob Storage. Uploading is not supported.
 This tool currently only supports authentication with account key and account name.
