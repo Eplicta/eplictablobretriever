@@ -2,8 +2,18 @@
 This is a Python command-line application designed to retrieve data from Azure Blob Storage.
 
 ## Installation
+
+### Clone repository
 Clone the repository to your local machine
-Install the required dependencies by running pip install -r requirements.txt in your terminal or command prompt
+
+To run anything using a cloned repository you need to setup a python virtual environment in the cloned repository. https://docs.python.org/3/library/venv.html
+
+Install the required dependencies by running ´pip install -r requirements.txt´ in your terminal or command prompt. Remember that this as well as running the actual application's command needs to be done in the virtual environment.
+
+### Install as package
+run ´pip install -i https://test.pypi.org/simple/ eplictablobretriever´.
+
+If installation fails, additional dependencies may need to be installed.
 
 ## Usage
 1. Open a terminal or command prompt in the directory where the application is installed
