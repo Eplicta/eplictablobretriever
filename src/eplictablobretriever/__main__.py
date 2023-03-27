@@ -1,5 +1,5 @@
-from package.cli import app
-from package.initialize import initialize
+from .cli import app
+from .initialize import initialize
 
 __app_name__ = "eplictablobretriever"
 

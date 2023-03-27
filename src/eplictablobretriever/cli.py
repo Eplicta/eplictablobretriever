@@ -1,7 +1,7 @@
 import typer
-from config import Config
-from blobstorageclient import BlobStorageClient
-from directory import check
+from .config import Config
+from .blobstorageclient import BlobStorageClient
+from .directory import check
 
 app = typer.Typer(no_args_is_help=True)
 
