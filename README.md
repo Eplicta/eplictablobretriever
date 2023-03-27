@@ -11,7 +11,7 @@ Install the required dependencies by running pip install -r requirements.txt in 
 3. Configure blob storage credentials by running ´python -m eplictablobretriever set-blob-config [ACCOUNT_NAME] [ACCOUNT_KEY]´. Replace [ACCOUNT_NAME] and [ACCOUNT_KEY] with the appropriate details
 4. Once the blob config has been set, the application is ready to go
 
-##C ommands
+## Commands
 The following commands are available for use with this tool:
 - ´list-blobs´: List all blobs in the specified container
 - ´download-blobs´: Download all blobs in the specified container
