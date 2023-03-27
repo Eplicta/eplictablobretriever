@@ -3,6 +3,8 @@ This is a Python command-line application designed to retrieve data from Azure B
 
 ## Installation
 
+Python version 3.11 or higher is required for this application
+
 ### Clone repository
 Clone the repository to your local machine
 
