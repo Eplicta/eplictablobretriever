@@ -31,7 +31,7 @@ The following commands are available for use with this tool:
 - ´set-download-path´: Set the path to where the files will be downloaded to
 
 Examples
-- To download all blobs in the "mycontainer" container: ´python -m eplictablobcontainer download-blobs mycontainer´
+- To download all blobs in the "mycontainer" container: ´python -m eplictablobretriever download-blobs mycontainer´
 
 ## Limitations
 This tool currently only supports downloading from Azure Blob Storage. Uploading is not supported.
