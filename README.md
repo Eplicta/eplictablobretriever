@@ -26,7 +26,9 @@ If installation fails, additional dependencies may need to be installed.
 ## Commands
 The following commands are available for use with this tool:
 - ´list-blobs´: List all blobs in the specified container
+- ´download-blob´: Download a single blob in the specified container 
 - ´download-blobs´: Download all blobs in the specified container
+- ´blob-config´: View current blob config. Will show account name and account key.
 - ´set-blob-config´: Set Blob Config
 - ´set-download-path´: Set the path to where the files will be downloaded to
 
