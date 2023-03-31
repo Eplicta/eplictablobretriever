@@ -29,7 +29,7 @@ class BlobStorageClient():
         blob_list = container_client.list_blob_names()
 
         for blob_name in blob_list:
-            download_path = os.path.join(self.config.get_option("APP_CONFIG", "DOWNLOAD_DIRECTORY"), blob_name)
+            download_path = os.path.join(self.config.get_option("APP_CONFIG", "DOWNLOAD_DIRECTORY"), container_name, blob_name)
             if (file_path != None):
                 download_path = os.path.join(file_path, blob_name)
 
