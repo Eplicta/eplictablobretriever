@@ -45,6 +45,29 @@ def download_blobs(
     blob_storage_client.download_blobs_from_container(container_name, download_path)
 
 @app.command()
+def download_blob(
+    container_name: str = typer.Argument(...),
+    blob_name: str = typer.Argument(...),
+    download_path: str = typer.Option(
+        None,
+        '-p',
+        '--path'
+    )
+
+) -> None:
+    if (download_path != None):
+        if (check(download_path) == False):
+            print(f'{download_path} is not a valid download path')
+            return
+
+    blob_storage_client = __get_blob_storage_client()
+
+    if (blob_storage_client is None):
+        return
+
+    blob_storage_client.download_blob(container_name, blob_name, download_path)
+
+@app.command()
 def set_download_path(
     download_path: str = typer.Argument(...)
 ) -> None:

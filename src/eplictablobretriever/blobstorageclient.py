@@ -19,7 +19,7 @@ class BlobStorageClient():
                 
         container_client = self.blob_service_client.get_container_client(container= container_name)
 
-        self.__download_blob(self, container_client, download_path, blob_name)
+        self.__download_blob(container_client, download_path, blob_name)
 
     def download_blobs_from_container(self, container_name, file_path= None):
         container_client, exists = self.__get_container_client(container_name)
