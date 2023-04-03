@@ -13,14 +13,14 @@ To run anything using a cloned repository you need to setup a python virtual env
 Install the required dependencies by running ´pip install -r requirements.txt´ in your terminal or command prompt. Remember that this as well as running the actual application's command needs to be done in the virtual environment.
 
 ### Install as package
-run ´pip install -i https://test.pypi.org/simple/ eplictablobretriever´.
+run ´py -m pip install -i https://test.pypi.org/simple/ eplictablobretriever´.
 
 If installation fails, additional dependencies may need to be installed.
 
 ## Usage
 1. Open a terminal or command prompt in the directory where the application is installed
-2. To view available commands, run ´python -m eplictablobretriever´
-3. Configure blob storage credentials by running ´python -m eplictablobretriever set-blob-config [ACCOUNT_NAME] [ACCOUNT_KEY]´. Replace [ACCOUNT_NAME] and [ACCOUNT_KEY] with the appropriate details
+2. To view available commands, run ´py -m eplictablobretriever´
+3. Configure blob storage credentials by running ´py -m eplictablobretriever set-blob-config [ACCOUNT_NAME] [ACCOUNT_KEY]´. Replace [ACCOUNT_NAME] and [ACCOUNT_KEY] with the appropriate details
 4. Once the blob config has been set, the application is ready to go
 
 ## Commands
@@ -33,7 +33,7 @@ The following commands are available for use with this tool:
 - ´set-download-path´: Set the path to where the files will be downloaded to
 
 Examples
-- To download all blobs in the "mycontainer" container: ´python -m eplictablobretriever download-blobs mycontainer´
+- To download all blobs in the "mycontainer" container: ´py -m eplictablobretriever download-blobs mycontainer´
 
 ## Limitations
 This tool currently only supports downloading from Azure Blob Storage. Uploading is not supported.
